@@ -1,6 +1,6 @@
 
 
-const N = Math.floor(Math.random() * 20) + 1;
+const N = Math.floor(Math.random() * 5) + 1;
 let s = '';
 
 const generateString = (length) => {
@@ -13,6 +13,7 @@ const generateString = (length) => {
 }
 
 //minimum tanks
+
 const solution = (N) => {
     generateString(N);
     console.log({ s });
@@ -22,17 +23,14 @@ const solution = (N) => {
         }
     } else {
         for (let i = 0; i < s.length; i++){
-            for(let j = 0 ; j < s.length; j++){
+            for(let j = 1 ; j < s.length; j++){
                 if(s[i] === s[j]){
-                    console.log();
+                    console.log("i: "+ i + ",j: "+ j);
                 }
             }
         }
     }
-    
-
-    return -1;
 }
 
-console.log(solution(N));
+solution(N);
 
