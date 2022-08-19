@@ -18,14 +18,8 @@ const solution = (A) => {
     console.log({ A });
 
     const selected = A[Math.floor(Math.random() * A.length)];
-    console.log({ selected });
-
     const quantity = Math.floor(Math.random() * 5) + 1;
-    console.log({ quantity });
-
     const arrLength = Math.floor(Math.random() * A.length);
-    console.log({ arrLength });
-
     const r = [];
 
     if (arrLength != 0 && quantity != 0 && selected != 0) {
@@ -38,33 +32,35 @@ const solution = (A) => {
                         rs.push(A[Math.floor(Math.random() * A.length)]);
                     }
                     rs = [...rs, A[i]];
-                    console.log({ rs });
+                    console.log({rs});
                 }
             }
             r.push(rs)
         }
-        console.log({ r });
     } else {
         return -1;
     }
 
+    console.log({r});
+
     const list = [];
     let max = 0;
     let arrHasMaxSum = [];
+
     for (let i = 0; i < r.length; i++) {
         let sumSub = 0;
         for (let j = 0; j < r[i].length; j++) {
             sumSub += r[i][j];
         }
         list.push(sumSub);
-        console.log({ list });
         max = list[0];
         if (sumSub > max || sumSub === max) {
             max = sumSub;
             arrHasMaxSum = r[i];
         }
     }
-    console.log(arrHasMaxSum);
+    return max;
 }
+console.log(solution(A));
 
-solution(A);
+
